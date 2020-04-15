@@ -11,3 +11,6 @@ $ cargo test
 $ cargo run [--release]
 
 Escape key or Q key exits the program.
+
+### Screenshot
+[<img src="https://github.com/Digital-Chaos/rs-life/blob/master/rs-life.png">](https://github.com/Digital-Chaos/rs-life/blob/master/rs-life.png)
