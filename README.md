@@ -2,13 +2,13 @@
 Rust/Terminal based implementation of John Conway's Game of Life
 
 ### Building
-$ cargo build [--release]
+```$ cargo build [--release]```
 
 ### Testing
-$ cargo test
+```$ cargo test```
 
 ### Running
-$ cargo run [--release]
+```$ cargo run [--release]```
 
 Escape key or Q key exits the program.
 
