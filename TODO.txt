@@ -1,0 +1,16 @@
+TODO LIST
+=========
+
+* Add Benchmarks
+
+* CLI Args (--version, --help)
+
+* Use a simpler/faster Rng e.g. SmallRnG (benchmark)
+
+* Optional status bar (dimensions, generation, total, alive)
+
+* Re-seed grid (after a delay) when popluation has settled
+
+* Optimisations; single Vec<Cell> or fixed sized array, Rayon? (benchmark)
+
+* Detect Ctrl+C (key code 3) in raw mode?
