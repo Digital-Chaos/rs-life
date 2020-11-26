@@ -9,6 +9,7 @@ use rand::Rng;
 
 /*****************************************************************************/
 
+#[derive(Debug, Eq, PartialEq)]
 pub struct Cell {
     alive:  bool
 }
@@ -25,20 +26,6 @@ impl Cell {
     // Map cell state to a char
     pub fn to_char(&self) -> char {
         if self.alive { Cell::LIVE_CELL } else { Cell::EMPTY_CELL }
-    }
-}
-
-impl PartialEq for Cell {
-    fn eq(&self, other: &Self) -> bool {
-        self.alive == other.alive
-    }
-}
-
-impl fmt::Debug for Cell {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("Cell")
-         .field("alive", &self.alive)
-         .finish()
     }
 }
 
