@@ -5,7 +5,6 @@
 extern crate termion;
 extern crate rand;
 
-use life::{Cell, Grid};
 use rand::{thread_rng};
 use std::{thread, time};
 use std::io::{Write, stdout};
@@ -14,7 +13,7 @@ use termion::event::Key;
 use termion::input::TermRead;
 use termion::raw::IntoRawMode;
 
-mod life;
+use rs_life::{Cell, Grid};
 
 /*****************************************************************************/
 

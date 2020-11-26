@@ -1,4 +1,4 @@
-/* life.rs - John Conway's Game of Life Cellular Automata
+/* lib.rs - John Conway's Game of Life Cellular Automata
 *  (c)2020 James Wright, see LICENSE file.
 */
 
