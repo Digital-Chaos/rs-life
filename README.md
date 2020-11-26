@@ -7,6 +7,9 @@ Rust/Terminal based implementation of John Conway's Game of Life
 ### Testing
 ```$ cargo test```
 
+### Benchmarking
+```$ cargo bench```
+
 ### Running
 ```$ cargo run [--release]```
 
