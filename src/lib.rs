@@ -59,19 +59,17 @@ impl Grid {
     // Return number of neighbours for given cell position
     fn neighbours(&self, x: usize, y: usize) -> u8 {
         let cells  = &self.cells;
-        let left   = Grid::index_wrap(x as isize - 1, cells[0].len());  // wrap to row width
-        let right  = Grid::index_wrap(x as isize + 1, cells[0].len());  // wrap to row width
-        let top    = Grid::index_wrap(y as isize - 1, cells.len());     // wrap to grid height
-        let bottom = Grid::index_wrap(y as isize + 1, cells.len());     // wrap to grid height
+        let height = cells.len();
+        let width  = cells[0].len();
+
+        let left   = if x > 0 { x - 1 } else { width - 1 };
+        let right  = if x < width - 1 { x + 1 } else { 0 };
+        let top    = if y > 0 { y - 1 } else { height - 1 };
+        let bottom = if y < height - 1 { y + 1 } else { 0 };
 
         (cells[top][left].alive    as u8) + (cells[top][x].alive    as u8) + (cells[top][right].alive    as u8) +
         (cells[y][left].alive      as u8) +                                  (cells[y][right].alive      as u8) +
         (cells[bottom][left].alive as u8) + (cells[bottom][x].alive as u8) + (cells[bottom][right].alive as u8)
-    }
-
-    // Return wrapped index making sure it's within range [0..len)
-    fn index_wrap(i: isize, len: usize) -> usize {
-        (i + len as isize) as usize % len
     }
 }
 
@@ -172,17 +170,6 @@ mod tests {
 
         // then
         assert_eq!(formatted, "OOO\r\nO O\r\nOOO");
-    }
-
-    #[test]
-    fn index_wrap_should_return_correct_indices() {
-        assert_eq!(Grid::index_wrap(-3, 3), 0);
-        assert_eq!(Grid::index_wrap(-2, 3), 1);
-        assert_eq!(Grid::index_wrap(-1, 3), 2);
-        assert_eq!(Grid::index_wrap( 0, 3), 0);
-        assert_eq!(Grid::index_wrap( 1, 3), 1);
-        assert_eq!(Grid::index_wrap( 2, 3), 2);
-        assert_eq!(Grid::index_wrap( 3, 3), 0);
     }
 
 /*****************************************************************************/
