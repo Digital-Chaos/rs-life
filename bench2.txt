@@ -1,5 +1,0 @@
-test grid_next_160_x_120 ... bench:     226,287 ns/iter (+/- 10,130)
-test grid_next_320_x_240 ... bench:     882,675 ns/iter (+/- 11,676)
-test grid_next_640_x_480 ... bench:   3,533,847 ns/iter (+/- 123,626)
-test grid_random         ... bench:     360,090 ns/iter (+/- 6,199)
-
