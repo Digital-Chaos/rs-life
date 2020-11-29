@@ -5,7 +5,9 @@
 extern crate rand;
 
 use std::fmt;
+use std::marker::Sync;
 use rand::Rng;
+use rayon::prelude::*;
 
 /*****************************************************************************/
 
@@ -46,9 +48,10 @@ impl Grid {
     }
 
     // Return next Grid state
-    pub fn next<F: Fn(&Cell, u8)->Cell>(&self, cell_func: F) -> Grid {
+    pub fn next<F>(&self, cell_func: F) -> Grid
+    where F: Fn(&Cell, u8)->Cell + Sync {
         Grid {
-            cells:  self.cells.iter().enumerate()
+            cells:  self.cells.par_iter().enumerate()
                     .map(|(y, row)| row.iter().enumerate()
                         .map(|(x, cell)| cell_func(&cell, self.neighbours(x, y)))
                         .collect())
